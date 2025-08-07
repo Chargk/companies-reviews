@@ -49,7 +49,19 @@ const companySchema = new mongoose.Schema({
     min: 0
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+});
+
+// Ensure virtual id field is included and _id is excluded in JSON
+companySchema.set('toJSON', {
+  transform: function(doc, ret) {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+    return ret;
+  }
 });
 
 module.exports = mongoose.model('Company', companySchema);

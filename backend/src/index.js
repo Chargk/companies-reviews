@@ -10,7 +10,6 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-
 // MongoDB connection
 // Seed data
 const seedCompanies = require('./seedData');
