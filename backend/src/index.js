@@ -10,7 +10,9 @@ const reviewRoutes = require('./routes/reviews');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : '*',
+}));
 app.use(express.json());
 
 // Auth routes
@@ -26,7 +28,10 @@ const seedCompanies = require('./seedData');
 mongoose.connect(process.env.MONGODB_URI)
   .then(async () => {
     console.log('✅ MongoDB Connected');
-    await seedCompanies(); // Run seed
+    if (process.env.SEED_DB === 'true') {
+      console.log('🌱 Seeding companies...');
+      await seedCompanies();
+    }
   })
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
