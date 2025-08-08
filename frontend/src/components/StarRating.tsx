@@ -103,7 +103,7 @@ export const StarRating: React.FC<StarRatingProps> = ({
       </div>
       
       {showValue && (
-        <span className={`ml-2 text-gray-600 font-medium ${textSizeClasses[size]}`}>
+        <span className={`ml-2 text-gray-600 font-medium ${textSizeClasses[size]} dark:text-gray-300`}>
           {rating.toFixed(1)}
         </span>
       )}

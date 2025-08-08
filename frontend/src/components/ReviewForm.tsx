@@ -89,13 +89,13 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6">
+    <div className="bg-white border border-gray-200 rounded-lg p-6 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-xl font-semibold">Write a Review for {companyName}</h3>
         {onCancel && (
           <button
             onClick={onCancel}
-            className="text-gray-500 hover:text-gray-700"
+            className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-100"
           >
             ✕
           </button>
@@ -104,14 +104,14 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-md">
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-md dark:bg-red-900/30 dark:border-red-800 dark:text-red-300">
             {error}
           </div>
         )}
 
         {/* Rating */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
             Overall Rating *
           </label>
           <StarRating
@@ -124,7 +124,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
         {/* Title */}
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
             Review Title *
           </label>
           <input
@@ -135,15 +135,15 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
             value={formData.title}
             onChange={handleInputChange}
             maxLength={100}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-400 dark:text-gray-100"
             placeholder="Brief summary of your experience"
           />
-          <p className="text-xs text-gray-500 mt-1">{formData.title.length}/100 characters</p>
+          <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">{formData.title.length}/100 characters</p>
         </div>
 
         {/* Comment */}
         <div>
-          <label htmlFor="comment" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="comment" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
             Detailed Review *
           </label>
           <textarea
@@ -154,16 +154,16 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
             onChange={handleInputChange}
             maxLength={1000}
             rows={5}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-400 dark:text-gray-100"
             placeholder="Tell us about your experience working at this company..."
           />
-          <p className="text-xs text-gray-500 mt-1">{formData.comment.length}/1000 characters</p>
+          <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">{formData.comment.length}/1000 characters</p>
         </div>
 
         {/* Pros and Cons */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="pros" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="pros" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
               Pros
             </label>
             <textarea
@@ -173,12 +173,12 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
               onChange={handleInputChange}
               maxLength={500}
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-400 dark:text-gray-100"
               placeholder="What you liked..."
             />
           </div>
           <div>
-            <label htmlFor="cons" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="cons" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
               Cons
             </label>
             <textarea
@@ -188,7 +188,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
               onChange={handleInputChange}
               maxLength={500}
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-400 dark:text-gray-100"
               placeholder="What could be improved..."
             />
           </div>
@@ -197,7 +197,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
         {/* Work details */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
               Position
             </label>
             <input
@@ -207,12 +207,12 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
               value={formData.position}
               onChange={handleInputChange}
               maxLength={100}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-400 dark:text-gray-100"
               placeholder="e.g. Senior Developer"
             />
           </div>
           <div>
-            <label htmlFor="employmentType" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="employmentType" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
               Employment Type
             </label>
             <select
@@ -220,7 +220,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
               name="employmentType"
               value={formData.employmentType || ''}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
             >
               <option value="">Select type</option>
               <option value="full-time">Full-time</option>
@@ -234,7 +234,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
         {/* Experience length */}
         <div>
-          <label htmlFor="experienceLength" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="experienceLength" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
             How long did you work at the company?
           </label>
           <select
@@ -242,7 +242,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
             name="experienceLength"
             value={formData.experienceLength || ''}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
           >
             <option value="">Select period</option>
             <option value="less-than-1-year">Less than 1 year</option>
@@ -255,11 +255,11 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
         {/* Work aspects */}
         <div>
-          <h4 className="text-lg font-medium text-gray-900 mb-4">Rate Work Aspects</h4>
+          <h4 className="text-lg font-medium text-gray-900 mb-4 dark:text-gray-100">Rate Work Aspects</h4>
           <div className="grid md:grid-cols-3 gap-4">
             {/* Work Environment */}
             <div>
-              <label htmlFor="workEnvironment" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="workEnvironment" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
                 Work Environment
               </label>
               <select
@@ -267,7 +267,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
                 name="workEnvironment"
                 value={formData.workEnvironment || ''}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               >
                 <option value="">Don't rate</option>
                 <option value="excellent">Excellent</option>
@@ -279,7 +279,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
             {/* Work-Life Balance */}
             <div>
-              <label htmlFor="workLifeBalance" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="workLifeBalance" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
                 Work-Life Balance
               </label>
               <select
@@ -287,7 +287,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
                 name="workLifeBalance"
                 value={formData.workLifeBalance || ''}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               >
                 <option value="">Don't rate</option>
                 <option value="excellent">Excellent</option>
@@ -299,7 +299,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
             {/* Salary */}
             <div>
-              <label htmlFor="salary" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="salary" className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-200">
                 Salary
               </label>
               <select
@@ -307,7 +307,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
                 name="salary"
                 value={formData.salary || ''}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               >
                 <option value="">Don't rate</option>
                 <option value="excellent">Excellent</option>
@@ -321,7 +321,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
 
         {/* Recommendation */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
+          <label className="block text-sm font-medium text-gray-700 mb-3 dark:text-gray-200">
             Would you recommend this company to others? *
           </label>
           <div className="flex space-x-4">
@@ -331,7 +331,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
               className={`px-6 py-2 rounded-md border font-medium transition-colors ${
                 formData.isRecommended
                   ? 'bg-green-100 border-green-500 text-green-700'
-                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50 dark:bg-transparent dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700'
               }`}
             >
               ✅ Yes, I recommend
@@ -342,7 +342,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
               className={`px-6 py-2 rounded-md border font-medium transition-colors ${
                 !formData.isRecommended
                   ? 'bg-red-100 border-red-500 text-red-700'
-                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50 dark:bg-transparent dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700'
               }`}
             >
               ❌ No, I don't recommend
@@ -351,7 +351,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
         </div>
 
         {/* Submit buttons */}
-        <div className="flex space-x-4 pt-6 border-t border-gray-200">
+        <div className="flex space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
           <button
             type="submit"
             disabled={isSubmitting}
@@ -372,7 +372,7 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({
               type="button"
               onClick={onCancel}
               disabled={isSubmitting}
-              className="px-6 py-3 border border-gray-300 rounded-md font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 disabled:opacity-50"
+              className="px-6 py-3 border border-gray-300 rounded-md font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 disabled:opacity-50 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
             >
               Cancel
             </button>

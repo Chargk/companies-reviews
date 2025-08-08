@@ -87,15 +87,15 @@ export const CompanyDetails: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Company Header */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{company.name}</h1>
-            <div className="flex items-center text-gray-600 mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2 dark:text-gray-100">{company.name}</h1>
+            <div className="flex items-center text-gray-600 mb-2 dark:text-gray-300">
               <MapPin className="h-4 w-4 mr-2" />
               <span>{company.location}</span>
             </div>
-            <div className="flex items-center text-gray-600">
+            <div className="flex items-center text-gray-600 dark:text-gray-300">
               <Users className="h-4 w-4 mr-2" />
               <span>{company.employees} employees</span>
             </div>
@@ -105,24 +105,24 @@ export const CompanyDetails: React.FC = () => {
               <StarDisplay rating={company.averageRating} size="md" showValue={false} />
               <span className="ml-2 text-2xl font-bold">{company.averageRating.toFixed(1)}</span>
             </div>
-            <p className="text-gray-600">{company.reviewCount} reviews</p>
+            <p className="text-gray-600 dark:text-gray-300">{company.reviewCount} reviews</p>
           </div>
         </div>
         
-        <p className="text-gray-700 mb-4">{company.description}</p>
+        <p className="text-gray-700 mb-4 dark:text-gray-300">{company.description}</p>
         
         <div className="grid md:grid-cols-3 gap-4 text-sm">
           <div>
             <span className="font-medium">Industry:</span>
-            <p className="text-gray-600">{company.industry}</p>
+            <p className="text-gray-600 dark:text-gray-300">{company.industry}</p>
           </div>
           <div>
             <span className="font-medium">Founded:</span>
-            <p className="text-gray-600">{company.founded}</p>
+            <p className="text-gray-600 dark:text-gray-300">{company.founded}</p>
           </div>
           <div>
             <span className="font-medium">Revenue:</span>
-            <p className="text-gray-600">{company.revenue}</p>
+            <p className="text-gray-600 dark:text-gray-300">{company.revenue}</p>
           </div>
         </div>
 
@@ -143,7 +143,7 @@ export const CompanyDetails: React.FC = () => {
 
       {/* Review Statistics */}
       {reviewStats && (
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
           <h3 className="text-lg font-semibold mb-4">Review Statistics</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Rating breakdown */}
@@ -154,7 +154,7 @@ export const CompanyDetails: React.FC = () => {
                   <div key={rating} className="flex items-center">
                     <span className="w-4 text-sm">{rating}</span>
                     <Star className="h-4 w-4 text-yellow-400 fill-current mx-2" />
-                    <div className="flex-1 bg-gray-200 rounded-full h-2 mx-2">
+                    <div className="flex-1 bg-gray-200 rounded-full h-2 mx-2 dark:bg-gray-700">
                       <div 
                         className="bg-yellow-400 h-2 rounded-full" 
                         style={{ 
@@ -162,7 +162,7 @@ export const CompanyDetails: React.FC = () => {
                         }}
                       ></div>
                     </div>
-                    <span className="text-sm text-gray-600 w-8">
+                    <span className="text-sm text-gray-600 w-8 dark:text-gray-300">
                       {reviewStats.ratingDistribution[rating as keyof typeof reviewStats.ratingDistribution]}
                     </span>
                   </div>
@@ -193,7 +193,7 @@ export const CompanyDetails: React.FC = () => {
       )}
 
       {/* Reviews Section */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Reviews</h2>
           {isAuthenticated ? (
@@ -204,7 +204,7 @@ export const CompanyDetails: React.FC = () => {
               {showReviewForm ? 'Cancel' : 'Write a Review'}
             </button>
           ) : (
-            <p className="text-gray-500">Log in to write a review</p>
+            <p className="text-gray-500 dark:text-gray-400">Log in to write a review</p>
           )}
         </div>
 
@@ -226,7 +226,7 @@ export const CompanyDetails: React.FC = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700"
             >
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>
@@ -259,7 +259,7 @@ export const CompanyDetails: React.FC = () => {
                 <button
                   onClick={() => setCurrentPage(page => Math.max(1, page - 1))}
                   disabled={currentPage === 1}
-                  className="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed dark:border-gray-700 dark:hover:bg-gray-700"
                 >
                   Previous
                 </button>
@@ -273,7 +273,7 @@ export const CompanyDetails: React.FC = () => {
                       className={`px-3 py-1 border rounded-md ${
                         currentPage === page
                           ? 'bg-blue-600 text-white border-blue-600'
-                          : 'border-gray-300 hover:bg-gray-50'
+                          : 'border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700'
                       }`}
                     >
                       {page}
@@ -284,7 +284,7 @@ export const CompanyDetails: React.FC = () => {
                 <button
                   onClick={() => setCurrentPage(page => Math.min(totalPages, page + 1))}
                   disabled={currentPage === totalPages}
-                  className="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed dark:border-gray-700 dark:hover:bg-gray-700"
                 >
                   Next
                 </button>
@@ -293,7 +293,7 @@ export const CompanyDetails: React.FC = () => {
           </div>
         ) : (
           <div className="text-center py-8">
-            <p className="text-gray-500">No reviews for this company yet</p>
+            <p className="text-gray-500 dark:text-gray-400">No reviews for this company yet</p>
             {isAuthenticated && (
               <button
                 onClick={() => setShowReviewForm(true)}

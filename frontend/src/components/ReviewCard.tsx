@@ -101,7 +101,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-4 border border-gray-200">
+    <div className="bg-white rounded-lg shadow-md p-6 mb-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center space-x-3">
@@ -109,10 +109,10 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
             {review.user.firstName[0]}{review.user.lastName[0]}
           </div>
           <div>
-            <h4 className="font-medium text-gray-900">
+            <h4 className="font-medium text-gray-900 dark:text-gray-100">
               {review.user.firstName} {review.user.lastName}
             </h4>
-            <div className="flex items-center space-x-2 text-sm text-gray-500">
+            <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
               <span>{formatDate(review.createdAt)}</span>
               {review.position && (
                 <>
@@ -132,7 +132,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
         
         <div className="flex items-center space-x-2">
           <StarDisplay rating={review.rating} size="sm" showValue={false} />
-          <span className="text-lg font-semibold text-gray-900">{review.rating}</span>
+          <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">{review.rating}</span>
           {review.isVerified && (
             <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">
               ✓ Verified
@@ -149,12 +149,12 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
       )}
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+      <h3 className="text-lg font-semibold text-gray-900 mb-3 dark:text-gray-100">
         {review.title}
       </h3>
 
       {/* Main comment */}
-      <p className="text-gray-700 mb-4 leading-relaxed">
+      <p className="text-gray-700 mb-4 leading-relaxed dark:text-gray-300">
         {review.comment}
       </p>
 
@@ -166,7 +166,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
               <h5 className="font-medium text-green-700 mb-2 flex items-center">
                 <span className="mr-1">👍</span> Pros
               </h5>
-              <p className="text-sm text-gray-600 bg-green-50 p-3 rounded-md">
+              <p className="text-sm text-gray-600 bg-green-50 p-3 rounded-md dark:text-gray-300 dark:bg-green-900/30">
                 {review.pros}
               </p>
             </div>
@@ -176,7 +176,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
               <h5 className="font-medium text-red-700 mb-2 flex items-center">
                 <span className="mr-1">👎</span> Cons
               </h5>
-              <p className="text-sm text-gray-600 bg-red-50 p-3 rounded-md">
+              <p className="text-sm text-gray-600 bg-red-50 p-3 rounded-md dark:text-gray-300 dark:bg-red-900/30">
                 {review.cons}
               </p>
             </div>
@@ -219,13 +219,13 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
         {review.employmentType && (
           <span>📋 {formatEmploymentType(review.employmentType)}</span>
         )}
-                  <span className={`flex items-center ${review.isRecommended ? 'text-green-600' : 'text-red-600'}`}>
+          <span className={`flex items-center ${review.isRecommended ? 'text-green-600' : 'text-red-600'}`}>
             {review.isRecommended ? '✅ Recommends' : '❌ Doesn\'t recommend'}
           </span>
       </div>
 
       {/* Voting */}
-      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+      <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
         <div className="flex items-center space-x-4">
           <button
             onClick={() => handleVote('helpful')}
@@ -234,7 +234,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
               flex items-center space-x-1 px-3 py-1 rounded-md text-sm font-medium transition-colors
               ${userVote === 'helpful' 
                 ? 'bg-green-100 text-green-700' 
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
               }
               ${isVoting || !isAuthenticated || review.user.id === user?.id 
                 ? 'opacity-50 cursor-not-allowed' 
@@ -244,7 +244,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
           >
             <span>👍</span>
             <span>Helpful</span>
-            <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded text-xs">
+            <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded text-xs dark:bg-gray-700 dark:text-gray-200">
               {votes.helpful}
             </span>
           </button>
@@ -256,7 +256,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
               flex items-center space-x-1 px-3 py-1 rounded-md text-sm font-medium transition-colors
               ${userVote === 'unhelpful' 
                 ? 'bg-red-100 text-red-700' 
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
               }
               ${isVoting || !isAuthenticated || review.user.id === user?.id 
                 ? 'opacity-50 cursor-not-allowed' 
@@ -266,14 +266,14 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
           >
             <span>👎</span>
             <span>Not helpful</span>
-            <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded text-xs">
+            <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded text-xs dark:bg-gray-700 dark:text-gray-200">
               {votes.unhelpful}
             </span>
           </button>
         </div>
 
         {!isAuthenticated && (
-          <span className="text-xs text-gray-400">Log in to vote</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500">Log in to vote</span>
         )}
       </div>
     </div>

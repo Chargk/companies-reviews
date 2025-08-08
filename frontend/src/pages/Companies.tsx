@@ -27,12 +27,12 @@ export const Companies: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Companies</h1>
-        <p className="text-gray-600">Find a company that suits you</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2 dark:text-gray-100">Companies</h1>
+        <p className="text-gray-600 dark:text-gray-300">Find a company that suits you</p>
       </div>
 
       {/* Filters */}
-      <div className="bg-white p-4 rounded-lg shadow-sm">
+      <div className="bg-white p-4 rounded-lg shadow-sm dark:bg-gray-800">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1">
             <div className="relative">
@@ -42,7 +42,7 @@ export const Companies: React.FC = () => {
                 placeholder="Search companies..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700 dark:placeholder-gray-400"
               />
             </div>
           </div>
@@ -50,7 +50,7 @@ export const Companies: React.FC = () => {
             <select
               value={selectedIndustry}
               onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:border-gray-700"
             >
               <option value="">All Industries</option>
               {industries.map((industry: string) => (
@@ -64,18 +64,18 @@ export const Companies: React.FC = () => {
       {/* Companies Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCompanies.map((company: Company) => (
-          <div key={company.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div key={company.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800">
             <div className="flex justify-between items-start mb-4">
-              <h3 className="text-xl font-semibold text-gray-900">{company.name}</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{company.name}</h3>
               <div className="flex items-center">
                 <Star className="h-4 w-4 text-yellow-400 fill-current" />
                 <span className="ml-1 text-sm font-medium">{company.averageRating}</span>
               </div>
             </div>
             
-            <p className="text-gray-600 mb-4">{company.description}</p>
+            <p className="text-gray-600 mb-4 dark:text-gray-300">{company.description}</p>
             
-            <div className="space-y-2 text-sm text-gray-500">
+            <div className="space-y-2 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex items-center">
                 <span className="font-medium">Industry:</span>
                 <span className="ml-2">{company.industry}</span>
