@@ -4,12 +4,20 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const Company = require('./models/Company');
+const authRoutes = require('./routes/auth');
+const reviewRoutes = require('./routes/reviews');
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Auth routes
+app.use('/api/auth', authRoutes);
+
+// Review routes
+app.use('/api/reviews', reviewRoutes);
 // MongoDB connection
 // Seed data
 const seedCompanies = require('./seedData');
