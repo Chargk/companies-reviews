@@ -133,8 +133,8 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
         <div className="flex items-center space-x-2">
           <StarDisplay rating={review.rating} size="sm" showValue={false} />
           <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">{review.rating}</span>
-          {review.isVerified && (
-            <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">
+      {review.isVerified && (
+            <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full dark:bg-green-900/30 dark:text-green-300">
               ✓ Verified
             </span>
           )}
@@ -144,7 +144,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
       {/* Company name if needed */}
       {showCompany && (
         <div className="mb-3">
-          <span className="text-sm font-medium text-blue-600">{review.company.name}</span>
+          <span className="text-sm font-medium text-brand-600">{review.company.name}</span>
         </div>
       )}
 

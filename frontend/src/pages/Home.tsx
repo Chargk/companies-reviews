@@ -15,7 +15,7 @@ export const Home: React.FC = () => {
         </p>
         <Link 
           to="/companies" 
-          className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-blue-700 transition-colors"
+          className="bg-brand-600 text-white px-8 py-3 rounded-xl text-lg hover:bg-brand-700 transition-colors shadow-card-md"
         >
           View Companies
         </Link>
@@ -44,7 +44,7 @@ export const Home: React.FC = () => {
       <section>
         <h2 className="text-2xl font-bold text-center mb-8">Top Companies</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+          <div className="bg-white p-6 rounded-xl shadow-card-md dark:bg-gray-800">
             <h3 className="font-semibold mb-2">TechCorp</h3>
             <div className="flex items-center mb-2">
               <Star className="h-4 w-4 text-yellow-400 fill-current" />
@@ -52,7 +52,7 @@ export const Home: React.FC = () => {
             </div>
             <p className="text-gray-600 text-sm dark:text-gray-300">Technology company</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+          <div className="bg-white p-6 rounded-xl shadow-card-md dark:bg-gray-800">
             <h3 className="font-semibold mb-2">InnovateSoft</h3>
             <div className="flex items-center mb-2">
               <Star className="h-4 w-4 text-yellow-400 fill-current" />
@@ -60,7 +60,7 @@ export const Home: React.FC = () => {
             </div>
             <p className="text-gray-600 text-sm dark:text-gray-300">Software development</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+          <div className="bg-white p-6 rounded-xl shadow-card-md dark:bg-gray-800">
             <h3 className="font-semibold mb-2">DataFlow</h3>
             <div className="flex items-center mb-2">
               <Star className="h-4 w-4 text-yellow-400 fill-current" />

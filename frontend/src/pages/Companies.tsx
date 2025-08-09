@@ -64,7 +64,7 @@ export const Companies: React.FC = () => {
       {/* Companies Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCompanies.map((company: Company) => (
-          <div key={company.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800">
+          <div key={company.id} className="bg-white p-6 rounded-xl shadow-card-md hover:shadow-lg transition-shadow dark:bg-gray-800">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{company.name}</h3>
               <div className="flex items-center">
@@ -92,7 +92,7 @@ export const Companies: React.FC = () => {
             
             <Link 
               to={`/companies/${company.id}`}
-              className="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors block text-center"
+              className="w-full mt-4 bg-brand-600 text-white py-2 px-4 rounded-xl hover:bg-brand-700 transition-colors block text-center shadow-card-md"
             >
               View Details
             </Link>

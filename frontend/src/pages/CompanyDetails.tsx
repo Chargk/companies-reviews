@@ -132,7 +132,7 @@ export const CompanyDetails: React.FC = () => {
               href={company.website} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center text-blue-600 hover:text-blue-700"
+              className="inline-flex items-center text-brand-600 hover:text-brand-700"
             >
               <Globe className="h-4 w-4 mr-2" />
               Visit Website
@@ -199,7 +199,7 @@ export const CompanyDetails: React.FC = () => {
           {isAuthenticated ? (
             <button
               onClick={() => setShowReviewForm(!showReviewForm)}
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+              className="bg-brand-600 text-white px-4 py-2 rounded-xl hover:bg-brand-700 shadow-card-md"
             >
               {showReviewForm ? 'Cancel' : 'Write a Review'}
             </button>
@@ -240,7 +240,7 @@ export const CompanyDetails: React.FC = () => {
         {/* Reviews list */}
         {reviewsLoading ? (
           <div className="text-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-600 mx-auto"></div>
             <p className="mt-2 text-gray-500">Loading reviews...</p>
           </div>
         ) : reviews.length > 0 ? (
@@ -272,7 +272,7 @@ export const CompanyDetails: React.FC = () => {
                       onClick={() => setCurrentPage(page)}
                       className={`px-3 py-1 border rounded-md ${
                         currentPage === page
-                          ? 'bg-blue-600 text-white border-blue-600'
+                          ? 'bg-brand-600 text-white border-brand-600'
                           : 'border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700'
                       }`}
                     >
@@ -297,7 +297,7 @@ export const CompanyDetails: React.FC = () => {
             {isAuthenticated && (
               <button
                 onClick={() => setShowReviewForm(true)}
-                className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                className="mt-4 bg-brand-600 text-white px-4 py-2 rounded-xl hover:bg-brand-700 shadow-card-md"
               >
                 Be the first to leave a review!
               </button>

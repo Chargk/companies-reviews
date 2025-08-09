@@ -100,7 +100,7 @@ export const Header: React.FC = () => {
                 <Link to="/login" className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
                   Login
                 </Link>
-                <Link to="/register" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <Link to="/register" className="bg-brand-600 text-white px-4 py-2 rounded-xl hover:bg-brand-700 shadow-card-md">
                   Register
                 </Link>
               </>
